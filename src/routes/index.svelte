@@ -1,38 +1,50 @@
 <script context="module">
-    import Card from  '$lib/components/Card.svelte'
-    import {gql} from 'graphql-request'
-    import {client} from '$lib/graphql-client'
+  import {client} from '$lib/graphql-client'
+  import Card from  '$lib/components/Card.svelte'
+  import {authorsQuery, projectsQuery} from '$lib/graphql-queries'
+  
+  export const load = async () => {
+    const [authorReq, projectsReq] = await Promise.all([
+      client.request(authorsQuery),
+      client.request(projectsQuery)
+    ])
+    const { authors } = authorReq
+    const { projects } = projectsReq
 
-    export const load = async () => {
-        const query = gql`
-        query GetProjects {
-            projects {
-            name
-            slug
-            description
-            demo
-            sourceCode
-            image {
-            url
-            }
-        }
-      }
-    `
-    const { projects } = await client.request(query)
     return {
-      status: 200,
-      props: {projects}
+      props: {
+        projects,
+        authors
+      }
     }
-}
+  }
 </script>
 <script>
     export let projects
+    export let authors
 </script>
 
-<h1>Recent Projects by Me</h1>
+<svelte:head>
+  <title>My Portfolio project</title>
+</svelte:head>
 
-<div>
+<h1 class="text-4xl mx-auto my-6 text-center">Welcome to my Portfolio</h1>
+
+{#each authors as { name, intro, picture: { url } }}
+  <div class="flex mb-40 items-end">
+    <div class="mr-6">
+      <h2 class="text-3xl mb-4 font-bold tracking-wider">{name}</h2>
+      <p class="text-xl mb-4">{intro}</p>
+    </div>
+
+    <img class="mask mask-squircle h-48" src={url} alt={name} />
+  </div>
+{/each}
+
+<div
+  class="grid gap-10 md:grid-cols-4 md:px-10 lg:grid-cols-6 lg:-mx-52"
+>
   {#each projects as { name, slug, description, image }}
-    <Card {name} {slug} {description} url={image[0].url}/>
+    <Card {name} {description} url={image[0].url} {slug} />
   {/each}
 </div>
