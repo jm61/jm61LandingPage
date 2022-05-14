@@ -6,10 +6,12 @@
 </script>
 <div class="relative group card w-80 bg-base-100 shadow-xl col-span-2">
   <figure><img src={url} alt="Shoes" /></figure>
+  <a href={`/projects/${slug}`}>
   <div class="card-body bg-gray-200 text-gray-700 p-6">
     <h2 class="card-title">{name}</h2>
     <p class="text-sm lg:text-xl">{description.slice(0, 40)}...</p>
   </div>
+  </a>
 </div>
 <!-- <div class="relative group card shadow-2xl col-span-2 my-8">
     <img src={url} alt={name} class="object-cover h-full" />
