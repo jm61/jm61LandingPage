@@ -42,7 +42,7 @@
 {/each}
 
 <div
-  class="grid gap-10 md:grid-cols-4 md:px-10 lg:grid-cols-6 lg:-mx-52"
+  class="grid gap-10 md:grid-cols-4 md:px-10 lg:grid-cols-6 lg:-mx-40"
 >
   {#each projects as { name, slug, description, image }}
     <Card {name} {description} url={image[0].url} {slug} />
