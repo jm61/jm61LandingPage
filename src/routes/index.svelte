@@ -30,11 +30,12 @@
 
 <h1 class="text-4xl mx-auto my-6 text-center">Welcome to my Portfolio</h1>
 
-{#each authors as { name, intro, picture: { url } }}
+{#each authors as { name, intro, picture: { url }, bio }}
   <div class="flex mb-40 items-end">
     <div class="mr-6">
       <h2 class="text-3xl mb-4 font-bold tracking-wider">{name}</h2>
       <p class="text-xl mb-4">{intro}</p>
+      <q>{bio}</q>
     </div>
 
     <img class="mask mask-squircle h-48" src={url} alt={name} />
