@@ -20,9 +20,12 @@
       <a class="btn btn-ghost btn-sm rounded-btn" href="/posts">
         Blog
       </a>
-      <a class="btn btn-ghost btn-sm rounded-btn" href="/about">
+      <a class="btn btn-ghost btn-sm rounded-btn" href="/aboutMe">
         About
       </a>
+      <a class="btn btn-ghost btn-sm rounded-btn" href="/aboutSite"
+        >This Site</a
+      >
       <div class="px-4"><ThemeSelect /></div>
     </ul>
   </div>
@@ -35,8 +38,11 @@
       <a class="btn btn-ghost btn-sm rounded-btn" href="/posts"
         >Blog</a
       >
-      <a class="btn btn-ghost btn-sm rounded-btn" href="/about"
+      <a class="btn btn-ghost btn-sm rounded-btn" href="/aboutMe"
         >About</a
+      >
+      <a class="btn btn-ghost btn-sm rounded-btn" href="/aboutSite"
+        >This Site</a
       >
       <div class="px-4">
         <ThemeSelect />
