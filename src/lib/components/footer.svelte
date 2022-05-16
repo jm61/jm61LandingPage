@@ -22,6 +22,6 @@
       </div>
     </div> 
     <div>
-      <p>Copyright © {`${new Date().getFullYear()}`} - All right reserved by JM61.DEV ||  <a class="hover:ring-4" href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a> & (<a href="https://scottspence.com" target="_blank" class="hover:ring-4">Scott Spence</a>) </p>
+      <p>Copyright © {`${new Date().getFullYear()}`} - All right reserved by JM61.DEV ||  <a class="hover:border-b-2 hover:border-primary-content" href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a> & (<a href="https://scottspence.com" target="_blank" class="hover:border-b-2 hover:border-primary-content">Scott Spence</a>) </p>
     </div>
   </footer>
