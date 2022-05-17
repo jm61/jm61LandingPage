@@ -1,6 +1,5 @@
 <script context="module">
   import {client} from '$lib/graphql-client'
-  import Card from  '$lib/components/Card.svelte'
   import {authorsQuery, projectsQuery} from '$lib/graphql-queries'
   
   export const load = async () => {
@@ -20,14 +19,14 @@
   }
 </script>
 <script>
-    export let projects
-    export let authors
+  import Card from  '$lib/components/Card.svelte'
+  export let projects
+  export let authors
 </script>
 
 <svelte:head>
   <title>My Portfolio project</title>
 </svelte:head>
-
 <h1 class="text-4xl mx-auto my-6 text-center">Welcome to my Portfolio</h1>
 
 {#each authors as { name, intro, picture: { url }, bio }}
