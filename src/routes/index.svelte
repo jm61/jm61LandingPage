@@ -1,50 +1,50 @@
 <script context="module">
-  import {client} from '$lib/graphql-client'
-  import {authorsQuery, projectsQuery} from '$lib/graphql-queries'
-  
-  export const load = async () => {
-    const [authorReq, projectsReq] = await Promise.all([
-      client.request(authorsQuery),
-      client.request(projectsQuery)
-    ])
-    const { authors } = authorReq
-    const { projects } = projectsReq
+	import { client } from '$lib/graphql-client';
+	import { authorsQuery, projectsQuery } from '$lib/graphql-queries';
 
-    return {
-      props: {
-        projects,
-        authors
-      }
-    }
-  }
+	export const load = async () => {
+		const [authorReq, projectsReq] = await Promise.all([
+			client.request(authorsQuery),
+			client.request(projectsQuery)
+		]);
+		const { authors } = authorReq;
+		const { projects } = projectsReq;
+
+		return {
+			props: {
+				projects,
+				authors
+			}
+		};
+	};
 </script>
+
 <script>
-  import Card from  '$lib/components/Card.svelte'
-  export let projects
-  export let authors
+	import Card from '$lib/components/Card.svelte';
+	export let projects;
+	export let authors;
 </script>
 
 <svelte:head>
-  <title>My Portfolio project</title>
+	<title>My Portfolio project</title>
 </svelte:head>
-<h1 class="text-4xl mx-auto my-6 text-center">Welcome to my Portfolio</h1>
+<h1 class="text-4xl mx-auto my-6 text-center">Bienvenue sur mon territoire digital</h1>
 
-{#each authors as { name, intro, picture: { url }, bio }}
-  <div class="flex mb-40 items-end">
-    <div class="mr-6">
-      <h2 class="text-3xl mb-4 font-bold tracking-wider">{name}</h2>
-      <p class="text-xl mb-4">{intro}</p>
-      <q>{bio}</q>
-    </div>
+{#each authors as { name, intro, picture: { url } }}
+	<div class="flex mb-40 items-end">
+		<div class="mr-6">
+			<h2 class="text-3xl mb-4 font-bold tracking-wider">{name}</h2>
+			<p class="text-xl mb-4">{intro}</p>
+		</div>
 
-    <img class="mask mask-squircle h-48" src={url} alt={name} />
-  </div>
+		<img class="mask mask-squircle h-48" src={url} alt={name} />
+	</div>
 {/each}
 
-<div
+<!-- <div
   class="grid gap-10 md:grid-cols-4 md:px-10 lg:grid-cols-6 lg:-mx-40"
 >
   {#each projects as { name, slug, description, image }}
     <Card {name} {description} url={image[0].url} {slug} />
   {/each}
-</div>
+</div> -->
